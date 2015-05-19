@@ -10,7 +10,14 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/user');
 
-var app = express();
+//rutas en archivo aparte
+require('./routes/main.js');
+
+//uso de mongoose
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/finalCurso')
+
+var app = exports.app = express();
 
 // view engine setup
 
