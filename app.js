@@ -18,12 +18,26 @@ var config = require('./config.js');
 var mongoose = require('mongoose');
 mongoose.connect(config.mongoDB.url);
 
+//stylus
+var stylus = require('stylus');
+
 var app = exports.app = express();
 
 // view engine setup
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// stylus setup
+app.use('/css', stylus.middleware({
+  src: __dirname + '/resources/stylus',
+  dest: __dirname + '/public/css',
+  compile: function (str, path) {
+    return stylus(str)
+      .set('filename', path)
+      .set('compress', true);
+  }
+}));
 
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
