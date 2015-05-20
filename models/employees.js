@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var config = require('../config');
+var config = require('../config.js');
 var urlProfileImg = 'http://'+config.app.domain+':'+config.app.port+'/img/user.png';
 
 var employeeSchema = new Schema({
@@ -8,7 +8,7 @@ var employeeSchema = new Schema({
 	lastname: String,
 	emailAdress: {type: String, unique: true},
 	password: String,
-	img: {type: String, default: urlProfileImg}, 
+	img: {type: String, default: urlProfileImg}
 });
 
 var empĺoyeeModel =  mongoose.model('Employees', employeeSchema);

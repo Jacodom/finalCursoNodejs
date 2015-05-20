@@ -7,3 +7,5 @@ var config = {
     port: 3200
   }
 };
+
+module.exports = config;

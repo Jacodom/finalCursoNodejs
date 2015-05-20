@@ -11,10 +11,12 @@ var routes = require('./routes/index');
 var users = require('./routes/user');
 
 
+//archivo de configuracion
+var config = require('./config.js');
 
 //uso de mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/finalCurso')
+mongoose.connect(config.mongoDB.url);
 
 var app = exports.app = express();
 

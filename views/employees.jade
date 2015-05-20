@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	include ./navBarAdmin.jade
+	.jumbotron
+		.container
+			h1.text-center= title
+			table.table.table-hover
+				thead
+					tr
+						th #
+						th Name
+						th Last Name
+						th E-mail
+						th Options
+				tbody
+					- employees.forEach(function(v,i){
+					tr
+						td=i
+						td= v.name
+						td= v.lastname
+						td= v.emailAdress
+						td
+							a(href='/panel/employees/edit/'+v._id) Edit 
+							span | 
+							a(href='/panel/employees/delete/'+v._id) Delete
+					-});
