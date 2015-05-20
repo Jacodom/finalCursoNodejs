@@ -1,0 +1,24 @@
+block content
+	.navbar.navbar-inverse.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" data-target="#navBarCollapse" data-toggle="collapse").navbar-toggle
+					span.sr-only Toggle Navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='/panel') Inicio
+			#navBarCollapse.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li 
+						a(href='/panel/employees') Employees
+					li 
+						a(href='/panel/employees/new') New employee
+
+				ul.nav.navbar-nav.navbar-right
+					li.dropdown
+						a(href="#" data-toggle="dropdown" role="button" aria-expanded="false").dropdown-toggle Usuario 
+							span.caret
+								ul.dropdown-menu(role="menu")
+									li
+										a(href='/logout') Logout

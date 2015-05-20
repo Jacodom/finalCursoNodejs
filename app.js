@@ -10,8 +10,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/user');
 
-//rutas en archivo aparte
-require('./routes/main.js');
+
 
 //uso de mongoose
 var mongoose = require('mongoose');
@@ -39,6 +38,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+//rutas en archivo aparte
+require('./routes/main.js');
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
