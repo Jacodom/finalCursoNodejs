@@ -8,7 +8,7 @@ block content
 				.panel-heading
 					h4=title
 				.panel-body
-					form(action='',method='post')
+					form#neForm(action='',method='post')
 						.form-group
 							label Nombre
 							input#name.form-control(type='text' name='name')
@@ -23,6 +23,8 @@ block content
 							input#password.form-control(type='password' name='password')
 						.form-group
 							label Confirm Password
-							input#confPassword.form-control(type='password')
+							input#confPassword.form-control(type='password' name='confPassword')
 						.text-center
-							input.btn.btn-success(type='submit' value='Save')
+							input#btnSave.btn.btn-success(type='button' value='Save')
+	script(src="/components/jquery-validation/dist/jquery.validate.min.js")
+	script(src="/js/validations.js")
