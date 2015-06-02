@@ -21,6 +21,7 @@ var fixtures = require('mongoose-fixtures');
 
 mongoose.connect(config.mongoDB.url);
 
+fixtures.load('./fixtures/admins.js');
 fixtures.load('./fixtures/employees.js');
 
 //stylus

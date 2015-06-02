@@ -59,4 +59,4 @@ exports.Employees = [
 		emailAdress: "mancerayder@gmail.com",
 		password: "",
 	}
-]
+];

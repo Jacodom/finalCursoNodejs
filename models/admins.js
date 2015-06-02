@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 
 var adminSchema = new Schema({
-	email: String,
+	emailAdress: String,
 	password: String
 });
 

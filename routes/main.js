@@ -1,5 +1,6 @@
 var app = module.parent.exports.app;
 var Employees = require('../models/employees.js');
+var Admins = require('../models/admins.js');
 
 app.get('/panel', function(req, res){
     res.render('panel');
