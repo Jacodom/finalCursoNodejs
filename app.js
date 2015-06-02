@@ -16,7 +16,12 @@ var config = require('./config.js');
 
 //uso de mongoose
 var mongoose = require('mongoose');
+//fixtures
+var fixtures = require('mongoose-fixtures');
+
 mongoose.connect(config.mongoDB.url);
+
+fixtures.load('./fixtures/employees.js');
 
 //stylus
 var stylus = require('stylus');
