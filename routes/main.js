@@ -3,6 +3,19 @@ var passport = module.parent.exports.passport;
 var Employees = require('../models/employees.js');
 var Admins = require('../models/admins.js');
 
+var adminAuth = function(req,res,next){
+	if(typeof req.user != "undefined"){
+		next();
+	}else{
+		res.redirect('/');
+	}
+}
+
+app.use(function(req, res, next){
+	res.locals.user = req.user;
+	next();
+});
+
 app.get('/admin',function(req,res){
 	res.render('adminLogin');
 });
@@ -20,8 +33,13 @@ app.post('/admin',
 		})
 );
 
+app.get('/logout', function(req,res){
+	req.logout();
+	res.redirect('/');
+});
 
-app.get('/panel', function(req, res){
+
+app.get('/panel', adminAuth, function(req, res){
 	var msg = req.flash('message');
     res.render('panel', {flashmsg: msg});
 });
@@ -32,11 +50,11 @@ app.get('/panel/employees',function(req,res){
  	});
  });
 
-app.get('/panel/employees/new',function(req,res){
+app.get('/panel/employees/new', adminAuth,function(req,res){
 	res.render('newEmployee',{title: 'New Employee'});
 });
 
-app.post('/panel/employees/new',function(req,res){
+app.post('/panel/employees/new', adminAuth, function(req,res){
 	var employees = new Employees({
 						name: req.body.name,
 						lastname: req.body.lastname,
@@ -52,7 +70,7 @@ app.post('/panel/employees/new',function(req,res){
 	});
 });
 
-app.get('/panel/employees/delete/:id',function(req,res){
+app.get('/panel/employees/delete/:id', adminAuth, function(req,res){
 	Employees.remove({_id: req.params.id},function(err,doc){
 		if(!err){
 			res.redirect('/panel/employees');
@@ -62,7 +80,7 @@ app.get('/panel/employees/delete/:id',function(req,res){
 	});
 });
 
-app.get('/panel/employees/edit/:id',function(req,res){
+app.get('/panel/employees/edit/:id', adminAuth, function(req,res){
 	Employees.findOne({_id: req.params.id},function(err,doc){
 		if(!err){
 			res.render('editEmployee',{title: 'Edit employee',emp: doc});
@@ -72,7 +90,7 @@ app.get('/panel/employees/edit/:id',function(req,res){
 	});
 });
 
-app.post('/panel/employees/edit/:id',function(req,res){
+app.post('/panel/employees/edit/:id', adminAuth, function(req,res){
 	Employees.findOne({_id: req.params.id},function(err,doc){
 		if(!err){
 			doc.name = req.body.name;

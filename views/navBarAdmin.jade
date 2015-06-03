@@ -16,9 +16,11 @@ block content
 						a(href='/panel/employees/new') New employee
 
 				ul.nav.navbar-nav.navbar-right
+					-if (user) {
 					li.dropdown
-						a(href="#" data-toggle="dropdown" role="button" aria-expanded="false").dropdown-toggle {user.name} {user.lastname} 
+						a(href="#" data-toggle="dropdown" role="button" aria-expanded="false").dropdown-toggle #{user.name} #{user.lastname}
 							span.caret
 								ul.dropdown-menu(role="menu")
 									li
 										a(href='/logout') Logout
+					-}
