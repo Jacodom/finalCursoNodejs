@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	.container
+		.row
+			.col-lg-6.col-lg-offset-3.col-md-12.col-xs-12
+				.panel.panel-default
+					.panel-heading
+						strong Ingrese datos para inicio de sesion.
+					.panel-body
+						form#formLogin(role="form", method="post")
+							.form-group
+								.input-group
+									span.input-group-addon
+										i.glyphicon.glyphicon-user
+									input#emailAdress.form-control(type="text", name="emailAdress", placeholder="E-mail here...")
+								.input-group
+									span.input-group-addon
+										i.glyphicon.glyphicon-lock
+									input#password.form-control(type="password", name="password", placeholder="Password here...")
+								-if(flashmsg){
+									p.text-danger #{flashmsg}
+								-};
+								.text-center
+									input(type="submit",value="Login")

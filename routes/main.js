@@ -1,9 +1,29 @@
 var app = module.parent.exports.app;
+var passport = module.parent.exports.passport;
 var Employees = require('../models/employees.js');
 var Admins = require('../models/admins.js');
 
+app.get('/admin',function(req,res){
+	res.render('adminLogin');
+});
+
+app.get('/admin/fail',function(req,res){
+	res.render('adminLogin',{url:"/admin", flashmsg: "Password or email invalid."});
+});
+
+app.post('/admin', 
+	passport.authenticate('AdminLogin',
+		{
+			successRedirect: '/panel',
+			failureRedirect: '/admin/fail',
+			failureFlash: true,
+		})
+);
+
+
 app.get('/panel', function(req, res){
-    res.render('panel');
+	var msg = req.flash('message');
+    res.render('panel', {flashmsg: msg});
 });
 
 app.get('/panel/employees',function(req,res){
