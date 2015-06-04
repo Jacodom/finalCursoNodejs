@@ -8,8 +8,8 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var passport = exports.passport = require('passport');
 
-var routes = require('./routes/index');
-var users = require('./routes/user');
+//var routes = require('./routes/index');
+//var users = require('./routes/user');
 
 
 //archivo de configuracion
@@ -65,8 +65,8 @@ app.use(flash());
 
 require('./auth/local-strategy.js');
 
-app.use('/', routes);
-app.use('/users', users);
+//app.use('/', routes);
+//app.use('/users', users);
 
 //rutas en archivo aparte
 require('./routes/main.js');

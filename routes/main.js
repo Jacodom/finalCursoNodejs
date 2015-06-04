@@ -44,7 +44,7 @@ app.get('/panel', adminAuth, function(req, res){
     res.render('panel', {flashmsg: msg});
 });
 
-app.get('/panel/employees',function(req,res){
+app.get('/panel/employees', adminAuth, function(req,res){
  	Employees.find({},function(err,docs){
  		res.render('employees',{title: 'Employee List',employees: docs});
  	});
@@ -108,4 +108,20 @@ app.post('/panel/employees/edit/:id', adminAuth, function(req,res){
 		}
 		
 	});
+});
+
+app.get('/',function(req, res){
+	res.render('index', {title: "Employee Wiki"});
+});
+
+app.get('/employees/search',function(req, res){
+	var re = new RegExp(req.query.search,'i');
+	if(req.query.search){
+		Employees.find().or([{name: {$regex: re }}, {lastname: {$regex: re}}]).exec(function(err,docs){
+			docs.forEach(function(element, index, array){
+				element.password= undefined;
+			});
+			res.json(docs);
+		});
+	}
 });
