@@ -1,29 +1,29 @@
-block content
-	-var nav = [{title: "Home", link: "/"},{title: "Administrator", link: "/admin"}];
-	-if(user){
-	-	var nav = [{title: "Home", link: "/panel"}, {title: "Employees", link:"/panel/employees"},{title: "New Employee", link: "/panel/employees/new"}];
-	-}
-	.navbar.navbar-inverse.navbar-fixed-top
-		.container-fluid
-			.navbar-header
-				button(type="button" data-target="#navBarCollapse" data-toggle="collapse").navbar-toggle
-					span.sr-only Toggle Navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-					a.navbar-brand(href='#{nav[0].link}') #{nav[0].title} 
-			#navBarCollapse.collapse.navbar-collapse
-				ul.nav.navbar-nav
-					-nav.forEach(function(option){
-					li 
-						a(href='#{option.link}') #{option.title}
-					-});
-				ul.nav.navbar-nav.navbar-right
-					-if (user) {
-					li.dropdown
-						a(href="#" data-toggle="dropdown" role="button" aria-expanded="false").dropdown-toggle #{user.name} #{user.lastname}
-							span.caret
-								ul.dropdown-menu(role="menu")
-									li
-										a(href='/logout') Logout
-					-}
+
+-var nav = [{title: "Home", link: "/"},{title: "Administrator", link: "/admin"}];
+-if(user){
+-	var nav = [{title: "Home", link: "/panel"}, {title: "Employees", link:"/panel/employees"},{title: "New Employee", link: "/panel/employees/new"}];
+-}
+.navbar.navbar-inverse.navbar-fixed-top
+	.container-fluid
+		.navbar-header
+			button(type="button" data-target="#navBarCollapse" data-toggle="collapse").navbar-toggle
+				span.sr-only Toggle Navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand(href='#') EmployeeWiki 
+		#navBarCollapse.collapse.navbar-collapse
+			ul.nav.navbar-nav
+				-nav.forEach(function(option){
+				li 
+					a(href='#{option.link}') #{option.title}
+				-});
+			ul.nav.navbar-nav.navbar-right
+				-if (user) {
+				li.dropdown
+					a(href="#" data-toggle="dropdown" role="button" aria-expanded="false").dropdown-toggle #{user.name} #{user.lastname}
+						span.caret
+							ul.dropdown-menu(role="menu")
+								li
+									a(href='/logout') Logout
+				-}

@@ -1,25 +1,29 @@
 extends layout
 
 block content
+	include ./navBarAdmin.jade
 	.container
-		.row
-			.col-lg-6.col-lg-offset-3.col-md-12.col-xs-12
-				.panel.panel-default
-					.panel-heading
-						strong Ingrese datos para inicio de sesion.
-					.panel-body
-						form#formLogin(role="form", method="post")
-							.form-group
-								.input-group
-									span.input-group-addon
-										i.glyphicon.glyphicon-user
-									input#emailAdress.form-control(type="text", name="emailAdress", placeholder="E-mail here...")
-								.input-group
-									span.input-group-addon
-										i.glyphicon.glyphicon-lock
-									input#password.form-control(type="password", name="password", placeholder="Password here...")
+		.formWrapper
+			.row
+				.col-lg-6.col-lg-offset-3.col-md-6.col-md-offset-3.col-xs-12
+					.panel.panel-default
+						.panel-heading
+							h4.text-center Login data
+						.panel-body
+							form#neForm.formLogin(role="form", method="post", action="/admin")
+								.form-group
+									.input-group
+										span.input-group-addon
+											i.glyphicon.glyphicon-user
+										input#emailAdress.form-control(type="text", name="emailAdress", placeholder="E-mail here...")
+								.form-group
+									.input-group
+										span.input-group-addon
+											i.glyphicon.glyphicon-lock
+										input#password.form-control(type="password", name="password", placeholder="Password here...")
 								-if(flashmsg){
-									p.text-danger #{flashmsg}
+									p.text-danger.text-center #{flashmsg}
 								-};
-								.text-center
-									input(type="submit",value="Login")
+								.form-group
+									.text-center
+										input#btnSave.btn.btn-success(type="submit",value="Login")

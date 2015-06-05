@@ -3,20 +3,24 @@ extends layout
 block content
 	include ./navBarAdmin.jade
 	.container
-		.col-xs-12.col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
-			.panel.panel-default
-				.panel-heading
-					h4=title
-				.panel-body
-					form(action='',method='post')
-						.form-group
-							label Nombre
-							input#name.form-control(type='text' name='name' value=emp.name)
-						.form-group
-							label Apellido
-							input#lastname.form-control(type='text' name='lastname' value=emp.lastname)
-						.form-group
-							label E-mail
-							input#emailAdress.form-control(type='text' name='emailAdress' value=emp.emailAdress)
-						.text-center
-							input.btn.btn-success(type='submit' value='Save')
+		.formWrapper
+			.row
+				.col-xs-12.col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+					.panel.panel-default
+						.panel-heading
+							h4=title
+						.panel-body
+							form#neForm(action='',method='post')
+								.form-group
+									label Name
+									input#name.form-control(type='text' name='name' value=emp.name)
+								.form-group
+									label Lastname
+									input#lastname.form-control(type='text' name='lastname' value=emp.lastname)
+								.form-group
+									label E-mail
+									input#emailAdress.form-control(type='text' name='emailAdress' value=emp.emailAdress)
+								.text-center
+									input#btnSave.btn.btn-success(type='submit' value='Save')
+	script(src="/components/jquery-validation/dist/jquery.validate.min.js")
+	script(src="/js/validations.js")

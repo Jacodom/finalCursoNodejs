@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.4",
-    "jquery-validation": "~1.13.1"
+    "jquery-validation": "~1.13.1",
+    "fontawesome": "~4.3.0"
   }
 }

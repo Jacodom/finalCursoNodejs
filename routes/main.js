@@ -29,7 +29,6 @@ app.post('/admin',
 		{
 			successRedirect: '/panel',
 			failureRedirect: '/admin/fail',
-			failureFlash: true,
 		})
 );
 
@@ -40,13 +39,13 @@ app.get('/logout', function(req,res){
 
 
 app.get('/panel', adminAuth, function(req, res){
-	var msg = req.flash('message');
-    res.render('panel', {flashmsg: msg});
+    res.render('panel');
 });
 
 app.get('/panel/employees', adminAuth, function(req,res){
+ 	var msg = req.flash('message');
  	Employees.find({},function(err,docs){
- 		res.render('employees',{title: 'Employee List',employees: docs});
+ 		res.render('employees',{title: 'Employee List',employees: docs, flashmsg: msg});
  	});
  });
 
@@ -63,6 +62,7 @@ app.post('/panel/employees/new', adminAuth, function(req,res){
 	});
 	employees.save(function(err,doc){
 		if(!err){
+			req.flash('message', "New employee"+" "+doc.name+" "+"doc.lastname"+" "+"added successfully!");
 			res.redirect('/panel/employees');
 		}else{
 			res.end(err);
@@ -73,6 +73,7 @@ app.post('/panel/employees/new', adminAuth, function(req,res){
 app.get('/panel/employees/delete/:id', adminAuth, function(req,res){
 	Employees.remove({_id: req.params.id},function(err,doc){
 		if(!err){
+			req.flash('message', "The employee was successfully deleted!");
 			res.redirect('/panel/employees');
 		}else{
 			res.end(err);
@@ -98,6 +99,7 @@ app.post('/panel/employees/edit/:id', adminAuth, function(req,res){
 			doc.emailAdress = req.body.emailAdress;
 			doc.save(function(err,doc){
 				if(!err){
+					req.flash('message', "Employee"+" "+doc.name+" "+doc.lastname+" "+"was successfully edited!");
 					res.redirect('/panel/employees');
 				}else{
 					res.end(err);

@@ -3,4 +3,10 @@ extends layout
 block content
 	include ./navBarAdmin.jade
 	.jumbotron
-		h1 Bienvenido
+		.container
+			.titleWrapper
+				.text-center
+					h1 Welcome #{user.name}!
+					hr
+					h2 
+						|Choose an option from the #[span.label.label-default navbar] at the top of the page. 

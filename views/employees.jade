@@ -4,24 +4,35 @@ block content
 	include ./navBarAdmin.jade
 	.jumbotron
 		.container
-			h1.text-center= title
-			table.table.table-hover
-				thead
-					tr
-						th #
-						th Name
-						th Last Name
-						th E-mail
-						th Options
-				tbody
-					- employees.forEach(function(v,i){
-					tr
-						td=i
-						td= v.name
-						td= v.lastname
-						td= v.emailAdress
-						td
-							a(href='/panel/employees/edit/'+v._id) Edit 
-							span | 
-							a(href='/panel/employees/delete/'+v._id) Delete
-					-});
+			.titleWrapper
+				h1= title
+				h4 
+					em you can edit or delete an employee
+			- if(flashmsg!=""){
+			.row
+				.col-lg-6.col-lg-offset-3.col-md-6.col-md-offset-3.col-xs-12
+					.alert.alert-info.text-center #{flashmsg}
+			-}; 
+			.row
+				.col-lg-12.col-md-12-col-xs-12
+					.table-responsive
+						table.table.table-hover
+							thead
+								tr
+									th #
+									th Name
+									th Last Name
+									th E-mail
+									th Options
+							tbody
+								- employees.forEach(function(v,i){
+								tr
+									td=i
+									td= v.name
+									td= v.lastname
+									td= v.emailAdress
+									td
+										a(href='/panel/employees/edit/'+v._id) Edit 
+										span | 
+										a(href='/panel/employees/delete/'+v._id) Delete
+								-});
