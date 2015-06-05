@@ -24,6 +24,14 @@ module.exports = function (grunt) {
         }
       }
     },
+        mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/unit/**/*.js']
+      }
+    },
     watch: {
       options: {
         nospawn: true,

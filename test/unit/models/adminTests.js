@@ -1,9 +1,5 @@
-var assert = require('assert');
-
 var Admins = require('../../../models/admins.js');
-var config = require('../../../config.js');
 var mongoose = require('mongoose');
-var url = config.mongoDB.url; 
 var admin = new Admins({
 	name: 'adminTest', 
 	lastname: "adminLastnameTest", 
@@ -11,15 +7,6 @@ var admin = new Admins({
 	password: "123456"});
 
 describe('Model test Admins',function(){
-	describe("#MongoDB connection.",function(){
-		it('Should connect to the db whitout errors',function(done){
-			mongoose.connect(url, function(err){
-			if(err) throw err;
-			done();
-		});
-		});
-	});
-
 	describe('\n\t#Add an admin',function(){
 		it('Should save an admin whitout errors',function(done){
 			console.log("\tAdmin data:\n\t\tName: "+admin.name+"\n\t\tLastname: "+admin.lastname+"\n\t\tEmail Adress: "+admin.emailAdress+"\n\t\tPassword: "+admin.password);
