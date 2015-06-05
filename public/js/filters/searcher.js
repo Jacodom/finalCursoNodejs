@@ -22,7 +22,7 @@ $(document).ready(function(){
 					'<div class="row text-center">'+
 						'<div class="col-lg-12 col-md-12 col-xs-12">'+
 							'<h3>'+element.name+' '+element.lastname+'</h3>'+
-							'<h4>'+element.emailAdress+'</h4>'+
+							'<h5>'+element.emailAdress+'</h5>'+
 						'</div>'+
 					'</div>'+
 				'</div>'+
