@@ -31,7 +31,8 @@
     "load-grunt-tasks": "~3.1.0",
     "mocha": "^2.2.5",
     "request": "~2.53.0",
-    "time-grunt": "~1.1.0"
+    "time-grunt": "~1.1.0",
+    "zombie": "^4.0.10"
   },
   "description": "Repositorio con el código final para el curso de Nodejs del polo tecnológico.",
   "main": "Gruntfile.js",
