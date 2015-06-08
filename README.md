@@ -26,18 +26,18 @@ The Employee Wiki it's a project from a curse taken in the months of may and jun
 
 ##Installation guide
 
-1. First you need to install grunt, bower, mocha and yeoman:
+First you need to install grunt, bower, mocha and yeoman:
 ```bash
 $ npm install -g grunt-cli bower mocha yo
 ```
 Note: maybe you have to run the command with sudo.
 
-2. Then you should clone the project repository. Just execute in your terminal:
+Then you should clone the project repository. Just execute in your terminal:
 ```bash
 $ git clone https://github.com/Jacodom/finalCursoNodejs
 ``` 
 
-3. Then you have to install all the modules the application requires, both in the backend and in the frontend.
+Then you have to install all the modules the application requires, both in the backend and in the frontend.
 ```bash
 $ cd finalCursoNodejs
 $ npm install && bower install
