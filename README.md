@@ -54,24 +54,26 @@ $ npm start
 
 It'll be listening for requests at the port 3200. If all worked out, you should see the following page:
 
-//add the screenshot of the homepage
+![homepage](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/homepage.png)
 
 ###Searching employees - *Public side*
 You can search employees that are stored in the database. To accomplish this, you should go to the search box in the home page and start typing the keyword you're interested in. For example, if you type: *"ty"* , the application will go to the database and load all the employees which name or last name contains the keyword. It'll present the basic information of each employee in a very fancy way.
 
-//add search screenshot
+![search employees by keyword](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/search.png)
 
 ###Log in as Administrator - *Public side*
 If you have administrator credentials (**hint**: *email: admin@admin.com, password: 123456*), you will be able to enter to the private side of the application, the one that lets you administrate the employees. To make this happen, you should click in the option **_Administrator_** in the navbar at the top of the page. The application will load the login page, where you can insert the correct credentials and get into the interesting part.
 
-//add /admin and /panel screenshot 
+![admin can login here](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/adminLogin.png)
 
 When you access successfully, you'll be redirected to the panel page.
+
+![panel](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/panel.png)
 
 ###Listing all the employees - *Private side*
 Once you're in the panel page, you can see all the employees that are registered in the database. To accomplish this, you should click in the option **_Employees_** in the navbar at the top of the page. The application will load another page and list all the employees in a table. It will also give you the possibility to edit and delete each employee.
 
-//add /employees screenshot
+![list of employees](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/list.png)
 
 ###Deleting an employee - *Private side*
 All you have to do is click in the *[delete]()* option on the column at the right of the table.
@@ -79,12 +81,12 @@ All you have to do is click in the *[delete]()* option on the column at the righ
 ###Editing an employee - *Private side*
 First you should click on the option *[edit]()* option on the column at the right of the table and the application will load the editing page. It allows you to edit only the **Name**, the **Lastname** and the **Email** of the employee. Once you're done, click in the *Save* button. 
 
-//add edit screenshot
+![editing and existing employee](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/employeeEdit.png)
 
 ###Adding a new employee - *Private side*
 To add a new employee at the database, you have to click in the option **_New Employee_** in the navbar at the top of the page. The application will load the new employee page and you'll be able to complete each field and *Save* the new empployee. Once you saved it, you'll  be redirected to the employees list page.
 
-//add new employee screenshot
+![adding a new employee](https://raw.githubusercontent.com/Jacodom/finalCursoNodejs/master/templates/screenshots/newEmployee.png)
 
 ##Testing
 If you want to make a unit test of the models that compose the logic of the application, you have to run the following command on your terminal:
